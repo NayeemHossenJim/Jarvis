@@ -37,7 +37,6 @@ def speak(text):
 if __name__ == "__main__":
     speak("Initializing Jarvis ......")
     while True:
-        # obtain audio from the microphone
         r = sr.Recognizer()
         try:
             with sr.Microphone() as source:
