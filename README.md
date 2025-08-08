@@ -9,7 +9,7 @@
 
 ### *"Just A Rather Very Intelligent System"*
 
-**A sophisticated Python-based voice-activated personal assistant inspired by Iron Man's JARVIS**
+**An enhanced Python-based voice-activated personal assistant with improved error handling, logging, and modular design**
 
 *Transform your computer into an intelligent companion that responds to your voice commands*
 
@@ -24,25 +24,31 @@
 <td width="50%">
 
 ### 🎤 **Voice Recognition**
-Advanced speech-to-text processing using Google's Speech Recognition API
+Advanced speech-to-text processing using Google's Speech Recognition API with ambient noise adjustment
 
 ### 🔊 **Text-to-Speech** 
-Natural voice responses using pyttsx3 engine
+Natural voice responses using pyttsx3 engine with configurable speed and volume
 
 ### 🌐 **Web Automation**
-Voice-controlled web browsing for popular sites
+Voice-controlled web browsing for popular sites with user feedback
+
+### 🎵 **Music Integration**
+Enhanced voice-controlled music playbook with error handling and song suggestions
 
 </td>
 <td width="50%">
 
-### 🎵 **Music Integration**
-Voice-controlled music playback with custom library
-
 ### 📰 **News Updates**
-Real-time news fetching using NewsAPI
+Real-time news fetching using NewsAPI with configurable article count
 
-### 👌 **Hands-free Operation**
-Complete voice-controlled interface
+### ⏰ **Time & Date**
+Voice-activated time and date announcements
+
+### �️ **Error Handling**
+Robust error handling with logging and automatic recovery
+
+### 📁 **Modular Design**
+Separated configuration, improved code structure, and maintainability
 
 </td>
 </tr>
