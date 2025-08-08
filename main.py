@@ -2,7 +2,6 @@ import speech_recognition as sr
 import webbrowser
 import pyttsx3
 import Musiclibrary
-import requests
 import logging
 from datetime import datetime
 import time
@@ -30,37 +29,6 @@ def speak(text):
     except Exception as e:
         logger.error(f"Error in text-to-speech: {e}")
         print(f"Error speaking: {text}")
-
-
-def get_news():
-    """Fetch and return latest news articles."""
-    try:
-        current_date = datetime.now().strftime("%Y-%m-%d")
-        url = f"https://newsapi.org/v2/everything?q={config.NEWS_QUERY}&from={current_date}&to={current_date}&sortBy=popularity&apiKey={config.NEWS_API_KEY}"
-        
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()
-        
-        data = response.json()
-        articles = data.get('articles', [])
-        
-        if not articles:
-            speak("Sorry, no news articles found for today.")
-            return
-            
-        speak(f"Here are the top {min(config.MAX_NEWS_ARTICLES, len(articles))} news headlines:")
-        for i, article in enumerate(articles[:config.MAX_NEWS_ARTICLES]):
-            title = article.get('title', 'No title available')
-            speak(f"News {i + 1}: {title}")
-            time.sleep(1)  # Brief pause between articles
-            
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Error fetching news: {e}")
-        speak("Sorry, I couldn't fetch the news right now. Please check your internet connection.")
-    except Exception as e:
-        logger.error(f"Unexpected error in get_news: {e}")
-        speak("Sorry, there was an error getting the news.")
-
 
 def play_music(song_name):
     """Play music from the music library."""
@@ -111,8 +79,6 @@ def process_command(command):
                 play_music(song_name)
             else:
                 speak("Please specify which song you want to play.")
-        elif "news" in command:
-            get_news()
         elif "time" in command:
             current_time = datetime.now().strftime("%I:%M %p")
             speak(f"The current time is {current_time}")
